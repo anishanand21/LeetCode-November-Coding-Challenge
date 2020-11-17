@@ -1,0 +1,26 @@
+Input: p = 2, q = 1
+Output: 2
+Explanation: The ray meets receptor 2 the first time it gets reflected back to the left wall.
+
+
+class Solution {
+public:
+    int mirrorReflection(int q, int p) {
+        
+        int cnt=1;
+        int t=p;
+        while(p%q!=0){
+            p=(p+t)%q;
+            
+            ++cnt;
+        }
+        
+        if(cnt%2==1){
+            if(((cnt*t)/q)%2==1)
+                return 1;
+            return 0;
+        }
+        return 2;
+        
+    }
+};
